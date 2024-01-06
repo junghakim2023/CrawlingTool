@@ -33,5 +33,13 @@ namespace CrawlingTool{
             }
         }
 
+        void ToURL(String url) {
+            driver.Url = url;
+        }
+
+        IWebElement FindElementByXPath(String xpath) {
+            return driver.FindElement(By.XPath(xpath));
+        }
+
     }
 }
