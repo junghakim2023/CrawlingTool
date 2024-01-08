@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 
 namespace CrawlingTool{
 
@@ -12,6 +13,7 @@ namespace CrawlingTool{
 
         IWebDriver driver;
         const int waitSeconds = 60 * 5;
+        WebDriverWait wait;
 
         WebDriver() {
             ChromeOptions options = new ChromeOptions();
@@ -39,6 +41,11 @@ namespace CrawlingTool{
 
         IWebElement FindElementByXPath(String xpath) {
             return driver.FindElement(By.XPath(xpath));
+        }
+
+        public void WaitForElement(By by)
+        {
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(by));
         }
 
     }

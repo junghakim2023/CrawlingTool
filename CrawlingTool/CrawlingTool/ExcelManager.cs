@@ -42,5 +42,11 @@ namespace CrawlingTool
                
             }
         }
+
+        public void DeleteExcelFile(String path)
+        {
+            var di = new System.IO.DirectoryInfo(path);
+            di.Delete(true);
+        }
     }
 }
